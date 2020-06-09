@@ -1,4 +1,6 @@
-
+module freqWordFinder
+export computingFrequencies
+export  numberToPattern
 function findkmer(str, k, t, unique)
     # unique = Dict()
     # unique1 = Dict()
@@ -70,16 +72,17 @@ function patternToNumber(pattern)
     return total
 end
 
-function numberToPatern(index, k)
+function numberToPattern(index, k)
     remainder = ""
     for i in 1:k
         remainder *= string(index % 4)
         index ÷= 4
     end
-
+    
     k = join([get(refDict2, val, "") for val in remainder], "")
-    println(reverse(k))
-    println(remainder)
+    return reverse(k)
+    # println(reverse(k))
+    # println(remainder)
 end
 
 function computingFrequencies(text, k)
@@ -98,22 +101,17 @@ function computingFrequencies(text, k)
     return freqArray
 end
 
-function FasterFrequentWords(text, k)
-    
-end
 
-fname = "dataset_2994_5.txt"
-file = open(fname,"r")
-data = split(read(file, String))
-text = data[1]
-k = parse(Int, data[2])
-close(file)
+# fname = "dataset_2994_5.txt"
+# file = open(fname,"r")
+# data = split(read(file, String))
+# text = data[1]
+# k = parse(Int, data[2])
+# close(file)
 
-# text = "ACGCGGCTCTGAAA"
-# k = 2
-freqArr = computingFrequencies(text, k)
-open("myfile.txt", "w") do f
-    write(f, join(freqArr, " "))
+# freqArr = computingFrequencies(text, k)
+# open("myfile.txt", "w") do f
+#     write(f, join(freqArr, " "))
+# end
+
 end
-# println(join(freqArr, " "))
-# println(freqArr)
