@@ -1,6 +1,7 @@
 module freqWordFinder
 export computingFrequencies
-export  numberToPattern
+export patternToNumber
+# export  numberToPattern
 function findkmer(str, k, t, unique)
     # unique = Dict()
     # unique1 = Dict()
@@ -63,13 +64,13 @@ refDict2 = Dict(
 
 function patternToNumber(pattern)
     patternLen = length(pattern) - 1
-    total = 0
+    index = 0
     for (idx, val) in enumerate(pattern)
         refCode = get(refDict, val, -1)
-        total += refCode * (4^patternLen)
+        index += refCode * (4^patternLen)
         patternLen -= 1
     end
-    return total
+    return index
 end
 
 function numberToPattern(index, k)
