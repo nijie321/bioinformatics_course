@@ -1,4 +1,6 @@
 
+module hammingDistIterative
+export  calc_hamming_dist
 
 function calc_hamming_dist(seq1::AbstractString, seq2::AbstractString)
    
@@ -15,20 +17,22 @@ function calc_hamming_dist(seq1::AbstractString, seq2::AbstractString)
     return diff
 end
 
+end
 
-fname = "dataset_9_3.txt"
 
-file = open(fname,"r")
+# fname = "dataset_9_3.txt"
 
-data = split(read(file, String))
-close(file)
+# file = open(fname,"r")
 
-seq1 = data[1]
-seq2 = data[2]
+# data = split(read(file, String))
+# close(file)
 
-try 
-    result = calc_hamming_dist(seq1,seq2)
-    println(result)
-catch e
-    println(e)
-end    
+# seq1 = data[1]
+# seq2 = data[2]
+
+# try 
+#     result = calc_hamming_dist(seq1,seq2)
+#     println(result)
+# catch e
+#     println(e)
+# end    

@@ -1,5 +1,4 @@
 
-min = Inf
 
 function min_skew_with_count(seq)
     countArr = Array{Int64}(undef, length(seq))
