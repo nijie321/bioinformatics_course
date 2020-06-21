@@ -1,6 +1,9 @@
+module approximatePatternMaching
+
 include("./hamming_distance_iterative.jl")
 using .hammingDistIterative
 
+export find_approximate_loc
 
 # find the starting location of the pattern within text
 # with at most d hamming distance
@@ -24,6 +27,7 @@ function find_approximate_loc(pattern::T, text::T, d::Int64) where {T <: Abstrac
     return pos
 end
 
+end
 # pattern = "ATTCTGGA"
 # text = "CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT"
 # d = 3
@@ -31,16 +35,19 @@ end
 # println(result)
 
 
-fname = "dataset_9_4.txt"
+# ------------------------------------------------------------------------
+# fname = "dataset_9_6.txt"
 
-file = open(fname,"r")
+# file = open(fname,"r")
 
-data = split(read(file, String))
-close(file)
-pattern, text, d = data
+# data = split(read(file, String))
+# close(file)
+# pattern, text, d = data
 
-result = find_approximate_loc(pattern, text, parse(Int64, d))
+# result = find_approximate_loc(pattern, text, parse(Int64, d))
 
-open("approximate_pattern_matching.txt", "w") do io
-    write(io, join(result, " "))
-end
+# println(result)
+# println(length(result))
+# open("approximate_pattern_matching.txt", "w") do io
+#     write(io, join(result, " "))
+# end
